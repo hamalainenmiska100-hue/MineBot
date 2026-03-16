@@ -20,13 +20,13 @@ struct ServerRecord: Codable, Identifiable {
 
 // MARK: - API Envelope
 
-struct APIEnvelope<T: Codable>: Codable {
+struct APIEnvelope<T: Decodable>: Decodable {
     let success: Bool
     let data: T?
     let error: String?
 }
 
-struct APIErrorEnvelope: Codable {
+struct APIErrorEnvelope: Decodable {
     let success: Bool
     let error: String?
 }
