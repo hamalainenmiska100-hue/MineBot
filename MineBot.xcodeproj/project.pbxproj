@@ -1,68 +1,115 @@
-// !$*UTF8*$!
+ // !$*UTF8*$!
 {
  archiveVersion = 1;
  classes = {};
  objectVersion = 56;
+
  objects = {
 
 /* Begin PBXFileReference section */
-APPFILE = {
+
+APP_PRODUCT = {
  isa = PBXFileReference;
  explicitFileType = wrapper.application;
  path = MineBot.app;
  sourceTree = BUILT_PRODUCTS_DIR;
 };
+
+INFOPLIST = {
+ isa = PBXFileReference;
+ lastKnownFileType = text.plist.xml;
+ path = Info.plist;
+ sourceTree = "<group>";
+};
+
 /* End PBXFileReference section */
 
+
+/* Begin PBXGroup section */
+
+MAIN_GROUP = {
+ isa = PBXGroup;
+ children = (
+  INFOPLIST,
+ );
+ sourceTree = "<group>";
+};
+
+/* End PBXGroup section */
+
+
 /* Begin PBXSourcesBuildPhase section */
+
 SOURCES = {
  isa = PBXSourcesBuildPhase;
  buildActionMask = 2147483647;
- files = ();
+ files = (
+ );
  runOnlyForDeploymentPostprocessing = 0;
 };
+
 /* End PBXSourcesBuildPhase section */
 
+
 /* Begin XCBuildConfiguration section */
-DEBUG = {
+
+DEBUG_CONFIG = {
  isa = XCBuildConfiguration;
  buildSettings = {
   PRODUCT_NAME = MineBot;
   SDKROOT = iphoneos;
   SWIFT_VERSION = 5.0;
   IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+  INFOPLIST_FILE = Info.plist;
  };
  name = Debug;
 };
 
-RELEASE = {
+RELEASE_CONFIG = {
  isa = XCBuildConfiguration;
  buildSettings = {
   PRODUCT_NAME = MineBot;
   SDKROOT = iphoneos;
   SWIFT_VERSION = 5.0;
   IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+  INFOPLIST_FILE = Info.plist;
  };
  name = Release;
 };
+
 /* End XCBuildConfiguration section */
 
+
 /* Begin XCConfigurationList section */
-CONFIGLIST = {
+
+PROJECT_CONFIG_LIST = {
  isa = XCConfigurationList;
  buildConfigurations = (
-  DEBUG,
-  RELEASE,
+  DEBUG_CONFIG,
+  RELEASE_CONFIG,
  );
  defaultConfigurationIsVisible = 0;
  defaultConfigurationName = Release;
 };
+
+TARGET_CONFIG_LIST = {
+ isa = XCConfigurationList;
+ buildConfigurations = (
+  DEBUG_CONFIG,
+  RELEASE_CONFIG,
+ );
+ defaultConfigurationIsVisible = 0;
+ defaultConfigurationName = Release;
+};
+
 /* End XCConfigurationList section */
 
+
 /* Begin PBXNativeTarget section */
-TARGET = {
+
+TARGET_MINEBOT = {
  isa = PBXNativeTarget;
- buildConfigurationList = CONFIGLIST;
+ buildConfigurationList = TARGET_CONFIG_LIST;
  buildPhases = (
   SOURCES,
  );
@@ -70,30 +117,26 @@ TARGET = {
  dependencies = ();
  name = MineBot;
  productName = MineBot;
- productReference = APPFILE;
+ productReference = APP_PRODUCT;
  productType = "com.apple.product-type.application";
 };
+
 /* End PBXNativeTarget section */
 
-/* Begin PBXGroup section */
-GROUP = {
- isa = PBXGroup;
- children = ();
- sourceTree = "<group>";
-};
-/* End PBXGroup section */
 
 /* Begin PBXProject section */
+
 PROJECT = {
  isa = PBXProject;
- buildConfigurationList = CONFIGLIST;
+ buildConfigurationList = PROJECT_CONFIG_LIST;
  compatibilityVersion = "Xcode 14.0";
- mainGroup = GROUP;
- productRefGroup = GROUP;
+ mainGroup = MAIN_GROUP;
+ productRefGroup = MAIN_GROUP;
  targets = (
-  TARGET
+  TARGET_MINEBOT,
  );
 };
+
 /* End PBXProject section */
 
  };
