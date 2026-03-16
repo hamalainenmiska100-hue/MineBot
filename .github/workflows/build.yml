@@ -10,26 +10,27 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Select Xcode
         run: sudo xcode-select -switch /Applications/Xcode.app
 
-      - name: Build .app
+      - name: Build iOS app
         run: |
           xcodebuild \
           -project MineBot.xcodeproj \
           -scheme MineBot \
-          -sdk iphoneos \
+          -destination 'generic/platform=iOS' \
           -configuration Release \
+          -derivedDataPath build \
           CODE_SIGNING_ALLOWED=NO \
           build
 
-      - name: Create Payload folder
+      - name: Create Payload
         run: |
           mkdir Payload
-          cp -r build/Release-iphoneos/MineBot.app Payload/
+          cp -r build/Build/Products/Release-iphoneos/MineBot.app Payload/
 
       - name: Create IPA
         run: |
