@@ -12,33 +12,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Create Xcode project
+      - name: Compile app binary
         run: |
-          mkdir TempProject
-          cd TempProject
-          swift package init --type executable
-          rm -rf Sources/*
-          cp ../*.swift Sources/
-          swift package generate-xcodeproj
+          SDK=$(xcrun --sdk iphoneos --show-sdk-path)
 
-      - name: Build
+          xcrun swiftc \
+            -target arm64-apple-ios16.0 \
+            -sdk $SDK \
+            -framework SwiftUI \
+            -framework UIKit \
+            -parse-as-library \
+            *.swift \
+            -o MineBot
+
+          chmod +x MineBot
+
+      - name: Create app bundle
         run: |
-          cd TempProject
-          xcodebuild \
-            -project TempProject.xcodeproj \
-            -scheme TempProject \
-            -configuration Release \
-            -sdk iphoneos \
-            -destination 'generic/platform=iOS' \
-            -derivedDataPath build \
-            CODE_SIGNING_ALLOWED=NO \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY=""
+          mkdir -p Payload/MineBot.app
+          cp MineBot Payload/MineBot.app/
+          cp Info.plist Payload/MineBot.app/
 
       - name: Package IPA
         run: |
-          mkdir Payload
-          cp -R TempProject/build/Build/Products/Release-iphoneos/*.app Payload/
           zip -r MineBot.ipa Payload
 
       - uses: actions/upload-artifact@v4
