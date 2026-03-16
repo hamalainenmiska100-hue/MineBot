@@ -1,36 +1,51 @@
-name: Build MineBot
+name: Build MineBot IPA
 
 on:
   push:
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build app
+      - name: Show environment
+        run: |
+          pwd
+          ls -la
+          xcodebuild -version
+
+      - name: Resolve Swift Package Dependencies
         run: |
           xcodebuild \
-          -project MineBot.xcodeproj \
-          -scheme MineBot \
-          -destination 'generic/platform=iOS' \
-          -configuration Release \
-          -derivedDataPath build \
-          CODE_SIGNING_ALLOWED=NO \
-          build
+            -resolvePackageDependencies \
+            -project MineBot.xcodeproj
 
-      - name: Create IPA
+      - name: Build App
         run: |
-          mkdir Payload
-          cp -r build/Build/Products/Release-iphoneos/MineBot.app Payload/
+          xcodebuild \
+            -project MineBot.xcodeproj \
+            -scheme MineBot \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
+
+      - name: Package IPA
+        run: |
+          mkdir -p Payload
+          cp -R build/Build/Products/Release-iphoneos/MineBot.app Payload/
           zip -r MineBot.ipa Payload
 
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
-          name: MineBot
+          name: MineBot-IPA
           path: MineBot.ipa
