@@ -9,7 +9,6 @@ jobs:
     runs-on: macos-latest
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -21,7 +20,22 @@ jobs:
           -sdk $(xcrun --sdk iphoneos --show-sdk-path) \
           -framework SwiftUI \
           -framework UIKit \
-          *.swift \
+          API.swift \
+          AddServerView.swift \
+          AppModel.swift \
+          BotView.swift \
+          CommonViews.swift \
+          Haptics.swift \
+          Keychain.swift \
+          LoginView.swift \
+          MineBotApp.swift \
+          Models.swift \
+          ServerStore.swift \
+          SettingsView.swift \
+          Snackbar.swift \
+          StatusView.swift \
+          TutorialView.swift \
+          main.swift \
           -o MineBot
 
       - name: Create app bundle
