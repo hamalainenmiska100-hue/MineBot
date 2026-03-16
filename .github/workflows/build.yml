@@ -15,9 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate Xcode project
-        run: swift package generate-xcodeproj
-
       - name: Build app
         run: |
           xcodebuild \
