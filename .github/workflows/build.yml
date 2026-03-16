@@ -10,30 +10,23 @@ jobs:
     runs-on: macos-14
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Show environment
+      - name: Create Xcode project
         run: |
-          pwd
-          ls -la
-          xcodebuild -version
+          mkdir TempProject
+          cd TempProject
+          swift package init --type executable
+          rm -rf Sources/*
+          cp ../*.swift Sources/
+          swift package generate-xcodeproj
 
-      - name: List project schemes
+      - name: Build
         run: |
-          xcodebuild -list -project MineBot.xcodeproj
-
-      - name: Resolve Swift Package Dependencies
-        run: |
+          cd TempProject
           xcodebuild \
-            -resolvePackageDependencies \
-            -project MineBot.xcodeproj
-
-      - name: Build app
-        run: |
-          xcodebuild \
-            -project MineBot.xcodeproj \
-            -scheme MineBot \
+            -project TempProject.xcodeproj \
+            -scheme TempProject \
             -configuration Release \
             -sdk iphoneos \
             -destination 'generic/platform=iOS' \
@@ -42,25 +35,13 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
 
-      - name: Inspect build output
+      - name: Package IPA
         run: |
-          echo "Products:"
-          ls -la build/Build/Products
-          echo ""
-          echo "Release-iphoneos:"
-          ls -la build/Build/Products/Release-iphoneos
-          echo ""
-          echo "App bundle:"
-          ls -la build/Build/Products/Release-iphoneos/MineBot.app
-
-      - name: Create IPA
-        run: |
-          mkdir -p Payload
-          cp -R build/Build/Products/Release-iphoneos/MineBot.app Payload/
+          mkdir Payload
+          cp -R TempProject/build/Build/Products/Release-iphoneos/*.app Payload/
           zip -r MineBot.ipa Payload
 
-      - name: Upload IPA
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: MineBot-IPA
           path: MineBot.ipa
