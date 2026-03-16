@@ -5,18 +5,20 @@ on:
   workflow_dispatch:
 
 jobs:
+
   build:
 
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repository
+
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode.app
+      - name: Generate Xcode project
+        run: swift package generate-xcodeproj
 
-      - name: Build iOS app
+      - name: Build app
         run: |
           xcodebuild \
           -project MineBot.xcodeproj \
@@ -27,17 +29,14 @@ jobs:
           CODE_SIGNING_ALLOWED=NO \
           build
 
-      - name: Create Payload
+      - name: Create IPA
         run: |
           mkdir Payload
           cp -r build/Build/Products/Release-iphoneos/MineBot.app Payload/
-
-      - name: Create IPA
-        run: |
           zip -r MineBot.ipa Payload
 
-      - name: Upload IPA artifact
+      - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
-          name: MineBot-IPA
+          name: MineBot
           path: MineBot.ipa
