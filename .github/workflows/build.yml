@@ -12,40 +12,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Compile executable
+      - name: Build app
         run: |
-          xcrun swiftc \
-          -parse-as-library \
-          -target arm64-apple-ios17.0 \
-          -sdk $(xcrun --sdk iphoneos --show-sdk-path) \
-          -framework SwiftUI \
-          -framework UIKit \
-          API.swift \
-          AddServerView.swift \
-          AppModel.swift \
-          BotView.swift \
-          CommonViews.swift \
-          Haptics.swift \
-          Keychain.swift \
-          LoginView.swift \
-          MineBotApp.swift \
-          Models.swift \
-          ServerStore.swift \
-          SettingsView.swift \
-          Snackbar.swift \
-          StatusView.swift \
-          TutorialView.swift \
-          main.swift \
-          -o MineBot
-
-      - name: Create app bundle
-        run: |
-          mkdir -p Payload/MineBot.app
-          cp MineBot Payload/MineBot.app/
-          cp Info.plist Payload/MineBot.app/
+          xcodebuild \
+          -project MineBot.xcodeproj \
+          -scheme MineBot \
+          -destination 'generic/platform=iOS' \
+          -configuration Release \
+          -derivedDataPath build \
+          CODE_SIGNING_ALLOWED=NO \
+          build
 
       - name: Create IPA
         run: |
+          mkdir Payload
+          cp -r build/Build/Products/Release-iphoneos/MineBot.app Payload/
           zip -r MineBot.ipa Payload
 
       - name: Upload IPA
