@@ -5,57 +5,98 @@
  objectVersion = 56;
  objects = {
 
+/* Begin PBXFileReference section */
+APPFILE = {
+ isa = PBXFileReference;
+ explicitFileType = wrapper.application;
+ path = MineBot.app;
+ sourceTree = BUILT_PRODUCTS_DIR;
+};
+/* End PBXFileReference section */
+
+/* Begin PBXSourcesBuildPhase section */
+SOURCES = {
+ isa = PBXSourcesBuildPhase;
+ buildActionMask = 2147483647;
+ files = ();
+ runOnlyForDeploymentPostprocessing = 0;
+};
+/* End PBXSourcesBuildPhase section */
+
 /* Begin XCBuildConfiguration section */
-A1 /* Debug */ = {
+DEBUG = {
  isa = XCBuildConfiguration;
  buildSettings = {
   PRODUCT_NAME = MineBot;
   SDKROOT = iphoneos;
+  SWIFT_VERSION = 5.0;
+  IPHONEOS_DEPLOYMENT_TARGET = 16.0;
  };
  name = Debug;
 };
 
-A2 /* Release */ = {
+RELEASE = {
  isa = XCBuildConfiguration;
  buildSettings = {
   PRODUCT_NAME = MineBot;
   SDKROOT = iphoneos;
+  SWIFT_VERSION = 5.0;
+  IPHONEOS_DEPLOYMENT_TARGET = 16.0;
  };
  name = Release;
 };
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-B1 = {
+CONFIGLIST = {
  isa = XCConfigurationList;
  buildConfigurations = (
-  A1,
-  A2,
+  DEBUG,
+  RELEASE,
  );
  defaultConfigurationIsVisible = 0;
  defaultConfigurationName = Release;
 };
 /* End XCConfigurationList section */
 
-/* Begin PBXProject section */
-C1 = {
- isa = PBXProject;
- buildConfigurationList = B1;
- compatibilityVersion = "Xcode 14.0";
- mainGroup = C2;
- targets = ();
+/* Begin PBXNativeTarget section */
+TARGET = {
+ isa = PBXNativeTarget;
+ buildConfigurationList = CONFIGLIST;
+ buildPhases = (
+  SOURCES,
+ );
+ buildRules = ();
+ dependencies = ();
+ name = MineBot;
+ productName = MineBot;
+ productReference = APPFILE;
+ productType = "com.apple.product-type.application";
 };
-/* End PBXProject section */
+/* End PBXNativeTarget section */
 
 /* Begin PBXGroup section */
-C2 = {
+GROUP = {
  isa = PBXGroup;
  children = ();
  sourceTree = "<group>";
 };
 /* End PBXGroup section */
 
+/* Begin PBXProject section */
+PROJECT = {
+ isa = PBXProject;
+ buildConfigurationList = CONFIGLIST;
+ compatibilityVersion = "Xcode 14.0";
+ mainGroup = GROUP;
+ productRefGroup = GROUP;
+ targets = (
+  TARGET
+ );
+};
+/* End PBXProject section */
+
  };
 
- rootObject = C1;
+ rootObject = PROJECT;
 }
