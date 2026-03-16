@@ -1,115 +1,61 @@
-
 // !$*UTF8*$!
 {
-	archiveVersion = 1;
-	classes = {};
-	objectVersion = 56;
-	objects = {
+ archiveVersion = 1;
+ classes = {};
+ objectVersion = 56;
+ objects = {
 
-/* Begin PBXBuildFile section */
-		76A849FB00F74EB4A4BD5416 /* MineBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5774677FCB040EC856FDE99 /* MineBotApp.swift */; };
-		80125F2804B64F5AAD226ABD /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BA8E6A04044EFFBE2CAA58 /* TutorialView.swift */; };
-		8672E3BF349240149CF399BD /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C38D33DAAE548468E6481DD /* LoginView.swift */; };
-		1EADE03530F0486F96DD514B /* BotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C83B273C7E44019BBA24DA /* BotView.swift */; };
-		386DDC0685FD4DFEBFADC822 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE251BFD5C2F4030A208933B /* StatusView.swift */; };
-		BA7FB74E2BB94D2C84E81ED2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBDB4985FED4FAE912A9003 /* SettingsView.swift */; };
-		68905AA36FCC4B4E8CBCC0E7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE827F40F5495F872338EA /* API.swift */; };
-		D11526C14AA9485AA5D24FA7 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB210C475884CC480EBBE15 /* Models.swift */; };
-		77F4C6DD376843FB85F6F11C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F6AEA3D17142DAB7029B14 /* Keychain.swift */; };
-		7ACD0C0F02A94DA8991F70AF /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC50053F1A84A8EBEE1CEBC /* Haptics.swift */; };
-		09B17FD488444D01B2A0849D /* Snackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4794E1E8FF496E9E135220 /* Snackbar.swift */; };
-		3C948E217FAA49E2AEF661DC /* ServerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7503519BB104C1B85C86C4E /* ServerStore.swift */; };
-/* End PBXBuildFile section */
+/* Begin XCBuildConfiguration section */
+A1 /* Debug */ = {
+ isa = XCBuildConfiguration;
+ buildSettings = {
+  PRODUCT_NAME = MineBot;
+  SDKROOT = iphoneos;
+ };
+ name = Debug;
+};
 
-/* Begin PBXFileReference section */
-		D5774677FCB040EC856FDE99 /* MineBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBotApp.swift; sourceTree = "<group>"; };
-		24BA8E6A04044EFFBE2CAA58 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		1C38D33DAAE548468E6481DD /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		C5C83B273C7E44019BBA24DA /* BotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotView.swift; sourceTree = "<group>"; };
-		FE251BFD5C2F4030A208933B /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		2EBDB4985FED4FAE912A9003 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		48EE827F40F5495F872338EA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		7EB210C475884CC480EBBE15 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		69F6AEA3D17142DAB7029B14 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		ACC50053F1A84A8EBEE1CEBC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
-		AD4794E1E8FF496E9E135220 /* Snackbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snackbar.swift; sourceTree = "<group>"; };
-		E7503519BB104C1B85C86C4E /* ServerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStore.swift; sourceTree = "<group>"; };
-		A89442DEF45747139A1BB802 /* MineBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = MineBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+A2 /* Release */ = {
+ isa = XCBuildConfiguration;
+ buildSettings = {
+  PRODUCT_NAME = MineBot;
+  SDKROOT = iphoneos;
+ };
+ name = Release;
+};
+/* End XCBuildConfiguration section */
 
-/* Begin PBXGroup section */
-		3C1E80F5BB804D7ABD8A88F1 = {
-			isa = PBXGroup;
-			children = (
-				D5774677FCB040EC856FDE99 /* MineBotApp.swift */,
-				24BA8E6A04044EFFBE2CAA58 /* TutorialView.swift */,
-				1C38D33DAAE548468E6481DD /* LoginView.swift */,
-				C5C83B273C7E44019BBA24DA /* BotView.swift */,
-				FE251BFD5C2F4030A208933B /* StatusView.swift */,
-				2EBDB4985FED4FAE912A9003 /* SettingsView.swift */,
-				48EE827F40F5495F872338EA /* API.swift */,
-				7EB210C475884CC480EBBE15 /* Models.swift */,
-				69F6AEA3D17142DAB7029B14 /* Keychain.swift */,
-				ACC50053F1A84A8EBEE1CEBC /* Haptics.swift */,
-				AD4794E1E8FF496E9E135220 /* Snackbar.swift */,
-				E7503519BB104C1B85C86C4E /* ServerStore.swift */,
-			);
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXSourcesBuildPhase section */
-		94C1910115D447E39CBDC6B1 = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				76A849FB00F74EB4A4BD5416 /* MineBotApp.swift in Sources */,
-				80125F2804B64F5AAD226ABD /* TutorialView.swift in Sources */,
-				8672E3BF349240149CF399BD /* LoginView.swift in Sources */,
-				1EADE03530F0486F96DD514B /* BotView.swift in Sources */,
-				386DDC0685FD4DFEBFADC822 /* StatusView.swift in Sources */,
-				BA7FB74E2BB94D2C84E81ED2 /* SettingsView.swift in Sources */,
-				68905AA36FCC4B4E8CBCC0E7 /* API.swift in Sources */,
-				D11526C14AA9485AA5D24FA7 /* Models.swift in Sources */,
-				77F4C6DD376843FB85F6F11C /* Keychain.swift in Sources */,
-				7ACD0C0F02A94DA8991F70AF /* Haptics.swift in Sources */,
-				09B17FD488444D01B2A0849D /* Snackbar.swift in Sources */,
-				3C948E217FAA49E2AEF661DC /* ServerStore.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		218AA7BD69884A5E97BDDCB3 = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FACA5EBEBD504A89B835D03D;
-			buildPhases = (
-				94C1910115D447E39CBDC6B1,
-			);
-			buildRules = ();
-			dependencies = ();
-			name = MineBot;
-			productName = MineBot;
-			productReference = A89442DEF45747139A1BB802;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
+/* Begin XCConfigurationList section */
+B1 = {
+ isa = XCConfigurationList;
+ buildConfigurations = (
+  A1,
+  A2,
+ );
+ defaultConfigurationIsVisible = 0;
+ defaultConfigurationName = Release;
+};
+/* End XCConfigurationList section */
 
 /* Begin PBXProject section */
-		26F3834D0B9045C08CFF740E = {
-			isa = PBXProject;
-			attributes = {};
-			buildConfigurationList = D8FFD3E3C908449A8E8F39BA;
-			compatibilityVersion = "Xcode 14.0";
-			mainGroup = 3C1E80F5BB804D7ABD8A88F1;
-			productRefGroup = 3C1E80F5BB804D7ABD8A88F1;
-			targets = (
-				218AA7BD69884A5E97BDDCB3,
-			);
-		};
+C1 = {
+ isa = PBXProject;
+ buildConfigurationList = B1;
+ compatibilityVersion = "Xcode 14.0";
+ mainGroup = C2;
+ targets = ();
+};
 /* End PBXProject section */
 
-	};
-	rootObject = 26F3834D0B9045C08CFF740E;
+/* Begin PBXGroup section */
+C2 = {
+ isa = PBXGroup;
+ children = ();
+ sourceTree = "<group>";
+};
+/* End PBXGroup section */
+
+ };
+
+ rootObject = C1;
 }
