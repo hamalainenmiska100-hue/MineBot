@@ -16,13 +16,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compile executable
-        run: |
-          xcrun swiftc \
-          -target arm64-apple-ios15.0 \
-          -sdk $(xcrun --sdk iphoneos --show-sdk-path) \
-          -framework UIKit \
-          main.swift \
-          -o MineBot
+  run: |
+    xcrun swiftc \
+    -parse-as-library \
+    -target arm64-apple-ios15.0 \
+    -sdk $(xcrun --sdk iphoneos --show-sdk-path) \
+    -framework UIKit \
+    main.swift \
+    -o MineBot
 
       - name: Create app bundle
         run: |
