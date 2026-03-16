@@ -19,6 +19,7 @@ jobs:
           -parse-as-library \
           -target arm64-apple-ios15.0 \
           -sdk $(xcrun --sdk iphoneos --show-sdk-path) \
+          -framework SwiftUI \
           -framework UIKit \
           main.swift \
           -o MineBot
