@@ -21,7 +21,7 @@ jobs:
           -sdk $(xcrun --sdk iphoneos --show-sdk-path) \
           -framework SwiftUI \
           -framework UIKit \
-          main.swift \
+          *.swift \
           -o MineBot
 
       - name: Create app bundle
