@@ -19,13 +19,17 @@ jobs:
           ls -la
           xcodebuild -version
 
+      - name: List project schemes
+        run: |
+          xcodebuild -list -project MineBot.xcodeproj
+
       - name: Resolve Swift Package Dependencies
         run: |
           xcodebuild \
             -resolvePackageDependencies \
             -project MineBot.xcodeproj
 
-      - name: Build App
+      - name: Build app
         run: |
           xcodebuild \
             -project MineBot.xcodeproj \
@@ -38,7 +42,18 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
 
-      - name: Package IPA
+      - name: Inspect build output
+        run: |
+          echo "Products:"
+          ls -la build/Build/Products
+          echo ""
+          echo "Release-iphoneos:"
+          ls -la build/Build/Products/Release-iphoneos
+          echo ""
+          echo "App bundle:"
+          ls -la build/Build/Products/Release-iphoneos/MineBot.app
+
+      - name: Create IPA
         run: |
           mkdir -p Payload
           cp -R build/Build/Products/Release-iphoneos/MineBot.app Payload/
